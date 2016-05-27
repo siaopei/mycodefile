@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type>
+
+                var source = new EventSource("es.php");
+                
+                source.addEventListener('message', function(e){
+                    document.getElementById("data").innerHTML+=e.data;
+                }, false);
+
+                source.addEventListener('open', function(e){
+                    console.log("connect OK");
+                }, false);
+
+                source.addEventListener('error', function(e){
+                    if(e.readyState == EventSource.CLOSED){ 
+                        console.log("connect close");
+                    }
+                }, false);
+                
+                
+
+        </script>
+    </head>
+    <body>
+          <div id="data"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     </body>
+</html>
